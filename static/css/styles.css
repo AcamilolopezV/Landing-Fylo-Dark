@@ -10,13 +10,14 @@
 }
 
 body{
-  background: #121e2a;
+  background: #181e2a;
   font-family: var(--open-sans);
   color:var(--light);
   margin: 0;
 }
 
 .header{
+  background: #1b2330;
 }
 
 .header-grid{
@@ -24,6 +25,7 @@ body{
   grid-template-columns: auto 1fr;
   height: 100px;
   align-items: center;
+  margin: 0 -1em;
 }
 
 .menu{
@@ -42,7 +44,7 @@ body{
 }
 
 .u-wrapper{
-  max-width: 1024px;
+  max-width: 1240px;
   padding: 0 40px;
   margin: 0 auto;
 }
@@ -53,6 +55,15 @@ img{
 
 .hero{
   text-align: center;
+  background: url('../images/bg-curvy-mobile.svg'), linear-gradient(to top, #181f2b 0%, #181f2b 230px, #1b2330 230px , #1b2330 100%);
+  background-position: center bottom 230px, center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero-grid{
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 h1{
@@ -103,8 +114,11 @@ h1{
 
 .productive{
   margin-top: 10em;
-  margin: 0 -15px;
   margin-bottom: 10em;
+}
+
+.productive-grid{
+  margin: 0 -15px;
 }
 
 .productive h2{
@@ -120,11 +134,30 @@ h1{
   border-bottom: 1px solid #63dcd8;
   text-decoration: none;
   padding-bottom: 0.4em;
+  padding-right: 20px;
+  background: url('../images/icon-arrow.svg') no-repeat right ;
+}
+
+.reviews{
+  padding-bottom: 5em;
 }
 
 .reviews-grid{
   display: grid;
   grid-row-gap: 2em;
+  position: relative;
+}
+
+.reviews-grid::before{
+  background: url('../images/bg-quotes.png') no-repeat;
+  width: 30px;
+  height: 30px;
+  content: '';
+  background-size: 100%;
+  display: block;
+  position: absolute;
+  left: 10px;
+  bottom: calc(100% - 10px);
 }
 
 .review{
@@ -158,8 +191,8 @@ h1{
 
 .form{
   text-align: center;
-  margin-top: 10em;
-  margin-bottom: 5em;
+  position: relative;
+  top: 100px;
 }
 
 .form input{
@@ -174,12 +207,14 @@ h1{
 
 .form-grid{
   background: #1b2330;
-  padding: 1em;
+  padding: 2em 2em;
   border-radius: 2em;
+  margin: 0 -15px;
 }
 
 .footer{
-
+  padding: 10em 0 2em;
+  background-color: #0c1524;
 }
 
 .footer ul{
@@ -195,7 +230,46 @@ h1{
   display: block;
 }
 
+.location,
+.phone,
+.email{
+  padding-left: 30px;
+  background: url('../images/icon-location.svg') no-repeat left top;
+}
+
+.phone{
+  background: url('../images/icon-phone.svg') no-repeat left top;
+}
+.email{
+  background: url('../images/icon-email.svg') no-repeat left top;
+}
+
+.social{
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.social a{
+  text-align: center;
+  border: 1px solid white;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+}
+
 @media screen and (min-width:768px){
+  .hero{
+    background: url('../images/bg-curvy-desktop.svg'), linear-gradient(to top, #181f2b 0%, #181f2b 230px, #1b2330 230px , #1b2330 100%);
+    background-position: center bottom center, center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  h1{
+    font-size: 2em;
+  }
+  
   .button{
     max-width: 300px;
   }
@@ -205,20 +279,21 @@ h1{
     grid-column-gap: 12em
   }
 
-  .productive{
-    margin-top: 5em;
+  .features-item{
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .reviews-grid{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2em;
   }
 
   .productive-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap:4em;
+    grid-column-gap: 4em;
     align-items: center;
-  }
-
-  .reviews-grid{
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 2em
   }
 
   .form-grid{
@@ -228,12 +303,49 @@ h1{
 
   .form form{
     display: grid;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: 1fr 200px;
     grid-column-gap: 2em;
     align-items: center;
+    margin-top: 2em;
   }
 
   .form .button{
     height: 50px;
+  }
+
+  .form input{
+    margin: 0;
+  }
+
+  .footer *{
+    margin-top: 0 !important;
+  }
+
+  .footer-grid{
+    display: grid;
+    grid-column-gap:1em;
+    grid-template-columns: 700px 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+
+  .footer-contact {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: 40px 40px;
+    gap: 0 4em;
+  }
+  .location {
+    grid-row: 1 / 3;
+  }
+  .email {
+    grid-column: 2 / 3;
+  }
+  .footer-grid {
+    display: grid;
+    grid-column-gap: 2em;
+    grid-template-columns: 700px 1fr 1fr 1fr 1fr;
+    /* margin-top: 2em; */
   }
 }
